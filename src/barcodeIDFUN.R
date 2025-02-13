@@ -1,3 +1,10 @@
+options(datatable.optimize=Inf)
+options(datatable.print.topn=3)
+options(datatable.verbose=FALSE)
+
+# 设置最优线程数
+optimal_threads <- min(parallel::detectCores() - 1, 32)
+data.table::setDTthreads(threads = optimal_threads)
 ## set downsampling option
 setDownSamplingOption<-function( down ,bccount, filename=NULL){
 
